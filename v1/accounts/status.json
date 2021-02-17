@@ -1,0 +1,460 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "termsOfService": "https://agrimesh.com/terms/",
+        "contact": {
+            "name": "Status Service Support",
+            "url": "https://agrimesh.com/developers/support?s=status",
+            "email": "status.service@agrimesh.com"
+        },
+        "license": {
+            "name": "MIT",
+            "url": "https://github.com/agrimesh/microservices/blob/main/LICENSE"
+        }
+    },
+    "paths": {
+        "/statuses": {
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "description": "Get all the status resources",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Status"
+                ],
+                "summary": "Get all status resources",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/models.JSONResultSuccess"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/models.Status"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/models.JSONResultFailure"
+                        }
+                    },
+                    "422": {
+                        "description": "Error: Unprocessable Entity",
+                        "schema": {
+                            "$ref": "#/definitions/models.JSONResultFailure"
+                        }
+                    },
+                    "500": {
+                        "description": "Error: Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.JSONResultFailure"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "description": "Create a single status resource",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Status"
+                ],
+                "summary": "Create single status resource",
+                "parameters": [
+                    {
+                        "description": "JSON body to create a status resource",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.CreateStatus"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/models.JSONResultSuccess"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/models.JSONResultFailure"
+                        }
+                    },
+                    "409": {
+                        "description": "Error: Conflict",
+                        "schema": {
+                            "$ref": "#/definitions/models.JSONResultFailure"
+                        }
+                    },
+                    "422": {
+                        "description": "Error: Unprocessable Entity",
+                        "schema": {
+                            "$ref": "#/definitions/models.JSONResultFailure"
+                        }
+                    },
+                    "500": {
+                        "description": "Error: Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.JSONResultFailure"
+                        }
+                    }
+                }
+            }
+        },
+        "/statuses/{sid}": {
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "description": "Get a single status resource",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Status"
+                ],
+                "summary": "Get single status resource",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "ID of the status resource",
+                        "name": "sid",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/models.JSONResultSuccess"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/models.Status"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/models.JSONResultFailure"
+                        }
+                    },
+                    "404": {
+                        "description": "Error: Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/models.JSONResultFailure"
+                        }
+                    },
+                    "422": {
+                        "description": "Error: Unprocessable Entity",
+                        "schema": {
+                            "$ref": "#/definitions/models.JSONResultFailure"
+                        }
+                    },
+                    "500": {
+                        "description": "Error: Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.JSONResultFailure"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "description": "Delete a single status",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Status"
+                ],
+                "summary": "Delete single status",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "ID of the status",
+                        "name": "sid",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.JSONResultSuccess"
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/models.JSONResultFailure"
+                        }
+                    },
+                    "404": {
+                        "description": "Error: Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/models.JSONResultFailure"
+                        }
+                    },
+                    "422": {
+                        "description": "Error: Unprocessable Entity",
+                        "schema": {
+                            "$ref": "#/definitions/models.JSONResultFailure"
+                        }
+                    },
+                    "500": {
+                        "description": "Error: Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.JSONResultFailure"
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "description": "Update a single status",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Status"
+                ],
+                "summary": "Update single status",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "ID of the status",
+                        "name": "sid",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "JSON body to update a status",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.UpdateStatus"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.JSONResultSuccess"
+                        }
+                    },
+                    "401": {
+                        "description": "Error: Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/models.JSONResultFailure"
+                        }
+                    },
+                    "404": {
+                        "description": "Error: Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/models.JSONResultFailure"
+                        }
+                    },
+                    "422": {
+                        "description": "Error: Unprocessable Entity",
+                        "schema": {
+                            "$ref": "#/definitions/models.JSONResultFailure"
+                        }
+                    },
+                    "500": {
+                        "description": "Error: Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.JSONResultFailure"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "models.CreateStatus": {
+            "type": "object",
+            "required": [
+                "availability",
+                "message"
+            ],
+            "properties": {
+                "availability": {
+                    "type": "string",
+                    "enum": [
+                        "Online",
+                        "Offline",
+                        "Away"
+                    ]
+                },
+                "message": {
+                    "type": "string",
+                    "maxLength": 300,
+                    "minLength": 1,
+                    "example": "Hi there! I am using AgriMesh."
+                }
+            }
+        },
+        "models.JSONResultFailure": {
+            "type": "object",
+            "properties": {
+                "errors": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "message": {
+                    "type": "string",
+                    "example": "Something went wrong, please try again."
+                },
+                "success": {
+                    "type": "boolean",
+                    "example": false
+                }
+            }
+        },
+        "models.JSONResultSuccess": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "object"
+                },
+                "message": {
+                    "type": "string",
+                    "example": "Operation successful"
+                },
+                "success": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "models.Status": {
+            "type": "object",
+            "properties": {
+                "availability": {
+                    "type": "string",
+                    "example": "Online"
+                },
+                "id": {
+                    "type": "string",
+                    "example": "568c28fffc4be30d44d0398e"
+                },
+                "message": {
+                    "type": "string",
+                    "example": "Hi there! I am using AgriMesh."
+                }
+            }
+        },
+        "models.UpdateStatus": {
+            "type": "object",
+            "properties": {
+                "availability": {
+                    "type": "string",
+                    "enum": [
+                        "Online",
+                        "Offline",
+                        "Away"
+                    ],
+                    "example": "Online"
+                },
+                "message": {
+                    "type": "string",
+                    "maxLength": 300,
+                    "minLength": 1,
+                    "example": "Hi there! I am using AgriMesh."
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "Bearer": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    },
+    "tags": [
+        {
+            "description": "Create and modify statuses",
+            "name": "Status"
+        }
+    ]
+}
