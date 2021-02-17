@@ -39,7 +39,7 @@
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/models.JSONResultSuccess"
+                                    "$ref": "#/definitions/JSONResultSuccess"
                                 },
                                 {
                                     "type": "object",
@@ -47,7 +47,7 @@
                                         "data": {
                                             "type": "array",
                                             "items": {
-                                                "$ref": "#/definitions/models.Status"
+                                                "$ref": "#/definitions/Status"
                                             }
                                         }
                                     }
@@ -58,19 +58,19 @@
                     "401": {
                         "description": "Error: Unauthorized",
                         "schema": {
-                            "$ref": "#/definitions/models.JSONResultFailure"
+                            "$ref": "#/definitions/JSONResultFailure"
                         }
                     },
                     "422": {
                         "description": "Error: Unprocessable Entity",
                         "schema": {
-                            "$ref": "#/definitions/models.JSONResultFailure"
+                            "$ref": "#/definitions/JSONResultFailure"
                         }
                     },
                     "500": {
                         "description": "Error: Internal Server Error",
                         "schema": {
-                            "$ref": "#/definitions/models.JSONResultFailure"
+                            "$ref": "#/definitions/JSONResultFailure"
                         }
                     }
                 }
@@ -99,7 +99,7 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/models.CreateStatus"
+                            "$ref": "#/definitions/CreateStatus"
                         }
                     }
                 ],
@@ -109,7 +109,7 @@
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/models.JSONResultSuccess"
+                                    "$ref": "#/definitions/JSONResultSuccess"
                                 },
                                 {
                                     "type": "object",
@@ -125,25 +125,25 @@
                     "401": {
                         "description": "Error: Unauthorized",
                         "schema": {
-                            "$ref": "#/definitions/models.JSONResultFailure"
+                            "$ref": "#/definitions/JSONResultFailure"
                         }
                     },
                     "409": {
                         "description": "Error: Conflict",
                         "schema": {
-                            "$ref": "#/definitions/models.JSONResultFailure"
+                            "$ref": "#/definitions/JSONResultFailure"
                         }
                     },
                     "422": {
                         "description": "Error: Unprocessable Entity",
                         "schema": {
-                            "$ref": "#/definitions/models.JSONResultFailure"
+                            "$ref": "#/definitions/JSONResultFailure"
                         }
                     },
                     "500": {
                         "description": "Error: Internal Server Error",
                         "schema": {
-                            "$ref": "#/definitions/models.JSONResultFailure"
+                            "$ref": "#/definitions/JSONResultFailure"
                         }
                     }
                 }
@@ -182,13 +182,13 @@
                         "schema": {
                             "allOf": [
                                 {
-                                    "$ref": "#/definitions/models.JSONResultSuccess"
+                                    "$ref": "#/definitions/JSONResultSuccess"
                                 },
                                 {
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#/definitions/models.Status"
+                                            "$ref": "#/definitions/Status"
                                         }
                                     }
                                 }
@@ -198,25 +198,25 @@
                     "401": {
                         "description": "Error: Unauthorized",
                         "schema": {
-                            "$ref": "#/definitions/models.JSONResultFailure"
+                            "$ref": "#/definitions/JSONResultFailure"
                         }
                     },
                     "404": {
                         "description": "Error: Not Found",
                         "schema": {
-                            "$ref": "#/definitions/models.JSONResultFailure"
+                            "$ref": "#/definitions/JSONResultFailure"
                         }
                     },
                     "422": {
                         "description": "Error: Unprocessable Entity",
                         "schema": {
-                            "$ref": "#/definitions/models.JSONResultFailure"
+                            "$ref": "#/definitions/JSONResultFailure"
                         }
                     },
                     "500": {
                         "description": "Error: Internal Server Error",
                         "schema": {
-                            "$ref": "#/definitions/models.JSONResultFailure"
+                            "$ref": "#/definitions/JSONResultFailure"
                         }
                     }
                 }
@@ -251,31 +251,31 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/models.JSONResultSuccess"
+                            "$ref": "#/definitions/JSONResultSuccess"
                         }
                     },
                     "401": {
                         "description": "Error: Unauthorized",
                         "schema": {
-                            "$ref": "#/definitions/models.JSONResultFailure"
+                            "$ref": "#/definitions/JSONResultFailure"
                         }
                     },
                     "404": {
                         "description": "Error: Not Found",
                         "schema": {
-                            "$ref": "#/definitions/models.JSONResultFailure"
+                            "$ref": "#/definitions/JSONResultFailure"
                         }
                     },
                     "422": {
                         "description": "Error: Unprocessable Entity",
                         "schema": {
-                            "$ref": "#/definitions/models.JSONResultFailure"
+                            "$ref": "#/definitions/JSONResultFailure"
                         }
                     },
                     "500": {
                         "description": "Error: Internal Server Error",
                         "schema": {
-                            "$ref": "#/definitions/models.JSONResultFailure"
+                            "$ref": "#/definitions/JSONResultFailure"
                         }
                     }
                 }
@@ -311,7 +311,7 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/models.UpdateStatus"
+                            "$ref": "#/definitions/UpdateStatus"
                         }
                     }
                 ],
@@ -319,31 +319,31 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/models.JSONResultSuccess"
+                            "$ref": "#/definitions/JSONResultSuccess"
                         }
                     },
                     "401": {
                         "description": "Error: Unauthorized",
                         "schema": {
-                            "$ref": "#/definitions/models.JSONResultFailure"
+                            "$ref": "#/definitions/JSONResultFailure"
                         }
                     },
                     "404": {
                         "description": "Error: Not Found",
                         "schema": {
-                            "$ref": "#/definitions/models.JSONResultFailure"
+                            "$ref": "#/definitions/JSONResultFailure"
                         }
                     },
                     "422": {
                         "description": "Error: Unprocessable Entity",
                         "schema": {
-                            "$ref": "#/definitions/models.JSONResultFailure"
+                            "$ref": "#/definitions/JSONResultFailure"
                         }
                     },
                     "500": {
                         "description": "Error: Internal Server Error",
                         "schema": {
-                            "$ref": "#/definitions/models.JSONResultFailure"
+                            "$ref": "#/definitions/JSONResultFailure"
                         }
                     }
                 }
@@ -351,7 +351,7 @@
         }
     },
     "definitions": {
-        "models.CreateStatus": {
+        "CreateStatus": {
             "type": "object",
             "required": [
                 "availability",
@@ -374,7 +374,7 @@
                 }
             }
         },
-        "models.JSONResultFailure": {
+        "JSONResultFailure": {
             "type": "object",
             "properties": {
                 "errors": {
@@ -393,7 +393,7 @@
                 }
             }
         },
-        "models.JSONResultSuccess": {
+        "JSONResultSuccess": {
             "type": "object",
             "properties": {
                 "data": {
@@ -408,7 +408,7 @@
                 }
             }
         },
-        "models.Status": {
+        "Status": {
             "type": "object",
             "properties": {
                 "availability": {
@@ -425,7 +425,7 @@
                 }
             }
         },
-        "models.UpdateStatus": {
+        "UpdateStatus": {
             "type": "object",
             "properties": {
                 "availability": {
