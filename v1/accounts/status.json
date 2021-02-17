@@ -1,15 +1,17 @@
 {
     "swagger": "2.0",
     "info": {
+        "title": "Status API",
+        "version": "v1.0",
         "termsOfService": "https://agrimesh.com/terms/",
         "contact": {
-            "name": "Status Service Support",
-            "url": "https://agrimesh.com/developers/support?s=status",
-            "email": "status.service@agrimesh.com"
+            "name": "Status API Support",
+            "url": "https://api.agrimesh.com/support?domain=accounts&api=status",
+            "email": "status.support@api.agrimesh.com"
         },
         "license": {
             "name": "MIT",
-            "url": "https://github.com/agrimesh/microservices/blob/main/LICENSE"
+            "url": "https://github.com/agrimesh/api-definitions/blob/main/LICENSE"
         }
     },
     "paths": {
