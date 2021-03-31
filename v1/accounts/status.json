@@ -115,7 +115,12 @@
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "type": "string"
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                }
+                                            }
                                         }
                                     }
                                 }
@@ -149,7 +154,7 @@
                 }
             }
         },
-        "/statuses/{sid}": {
+        "/statuses/{id}": {
             "get": {
                 "security": [
                     {
@@ -171,7 +176,7 @@
                     {
                         "type": "string",
                         "description": "ID of the status resource",
-                        "name": "sid",
+                        "name": "id",
                         "in": "path",
                         "required": true
                     }
@@ -242,7 +247,7 @@
                     {
                         "type": "string",
                         "description": "ID of the status",
-                        "name": "sid",
+                        "name": "id",
                         "in": "path",
                         "required": true
                     }
@@ -301,7 +306,7 @@
                     {
                         "type": "string",
                         "description": "ID of the status",
-                        "name": "sid",
+                        "name": "id",
                         "in": "path",
                         "required": true
                     },
@@ -403,6 +408,9 @@
                     "type": "string",
                     "example": "Operation successful"
                 },
+                "statusCode": {
+                    "type": "integer"
+                },
                 "success": {
                     "type": "boolean"
                 }
@@ -433,7 +441,8 @@
                     "enum": [
                         "Online",
                         "Offline",
-                        "Away"
+                        "Away",
+                        "Busy"
                     ],
                     "example": "Online"
                 },
